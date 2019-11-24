@@ -1,0 +1,10 @@
+    <li [ngClass]="{'list-group-item': true,
+                    'list-group-item-success': totalLoves > totalHates,
+                    'list-group-item-danger': totalLoves < totalHates
+    }">
+        <h2 [ngStyle]="{color: getColor()}"> {{ postTitle }}</h2> <!--3* On peux ensuite recuperer la variable definie par le parent-->
+        <h4>Dernière mis à jour : {{ postCreated_at | date: 'short' | uppercase }}</h4>
+        <p> {{ postContent }}</p>
+        <button class="btn btn-success" (click)="onLoveIts()">J'adore {{ totalLoves }}</button>
+        <button class="btn btn-danger" (click)="onHateIts()">J'aime pas {{ totalHates }}</button>
+    </li>
